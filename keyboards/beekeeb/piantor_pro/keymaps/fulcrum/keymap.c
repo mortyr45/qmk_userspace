@@ -180,7 +180,7 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [0] = LAYOUT_split_3x6_3(
+    [0] = LAYOUT_split_3x6_3(// default typing layer
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        TD(TD_ESC_GRV),KC_Q,KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -188,28 +188,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_RALT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_DEL,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            MO(2),  KC_SPC,   MO(1),      MO(1),  KC_ENT,   MO(2)
+                                            MO(3),  KC_SPC,   MO(1),      MO(1),  KC_ENT,   MO(3)
                                       //`--------------------------'  `--------------------------'
 
   ),
 
-    [1] = LAYOUT_split_3x6_3(
+    [1] = LAYOUT_split_3x6_3(// typing layer extra keys
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      KC_VOLU, KC_HOME, KC_PGDN, KC_PGUP, KC_END, XXXXXXX,                       XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, KC_BSPC,
+      KC_TRNS, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_VOLU,                      XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_MPLY, LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), XXXXXXX,    XXXXXXX, RCTL_T(KC_4), RSFT_T(KC_5), LALT_T(KC_6), RGUI_T(KC_NO), XXXXXXX,
+      KC_TRNS, LGUI_T(KC_LEFT), LALT_T(KC_DOWN), LSFT_T(KC_UP), LCTL_T(KC_RIGHT), KC_MPLY,    XXXXXXX, RCTL_T(KC_4), RSFT_T(KC_5), LALT_T(KC_6), RGUI_T(KC_NO), XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_VOLD, KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX,                      XXXXXXX,    KC_1,    KC_2,    KC_3, XXXXXXX, XXXXXXX,
+      KC_TRNS, KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_VOLD,                      XXXXXXX,    KC_1,    KC_2,    KC_3, XXXXXXX, KC_TRNS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX,  KC_SPC, KC_TRNS,    KC_TRNS,  KC_ENT, XXXXXXX
+                                          XXXXXXX, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
-    [2] = LAYOUT_split_3x6_3(
+    [2] = LAYOUT_split_3x6_3(// movement layer
+  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      KC_TRNS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX,    KC_A,    KC_S,    KC_W,    KC_D, XXXXXXX,                      XXXXXXX, KC_LEFT,   KC_UP, KC_DOWN,KC_RIGHT, XXXXXXX,
+  //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   TG(2),
+  //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
+                                          KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS
+                                      //`--------------------------'  `--------------------------'
+  ),
+
+    [3] = LAYOUT_split_3x6_3(// menu layer
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   TO(0), XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX,
+      XXXXXXX,   TO(2), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOTLOADER,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
